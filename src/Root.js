@@ -18,22 +18,14 @@ import {
 import configureStore from './lib/configureStore'
 
 
-// var I18n = require('react-native-i18n')
-
-// I18n.fallbacks = true
-
-// import Translations from './lib/Translations'
-// I18n.translations = Translations
-
-import Header2 from "./screens/Header/2";
-// import App from './containers/App'
-// import Login from './containers/Login'
-// import Logout from './containers/Logout'
-// import Register from './containers/Register'
-// import ForgotPassword from './containers/ForgotPassword'
-// import Profile from './containers/Profile'
-// import Main from './containers/Main'
-// import Subview from './containers/Subview'
+import App from './containers/App'
+import Login from './containers/Login'
+import Logout from './containers/Logout'
+import Register from './containers/Register'
+import ForgotPassword from './containers/ForgotPassword'
+import Profile from './containers/Profile'
+import Main from './containers/Main'
+import Subview from './containers/Subview'
 
 
 import Icon from 'react-native-vector-icons/FontAwesome'
@@ -94,13 +86,7 @@ export default class Root extends React.Component {
 
       <Provider store={store}>
         <Router sceneStyle={{ backgroundColor: 'white' }}>
-          <Scene key='root' hideNavBar default='App'>
-              <Scene key='App'
-                component={Header2}
-                type='replace'
-                initial />
-          </Scene>
-          {/*<Scene key='root' hideNavBar>
+          <Scene key='root' hideNavBar>
             <Scene key='App'
               component={App}
               type='replace'
@@ -132,14 +118,14 @@ export default class Root extends React.Component {
               default='Main'>
 
               <Scene key='Logout'
-                title={I18n.t('Snowflake.logout')}
+                title={'Log out'}
                 icon={TabIcon}
                 iconName={'sign-out'}
                 hideNavBar
                 component={Logout} />
 
               <Scene key='Main'
-                title={I18n.t('Snowflake.main')}
+                title={'Main'}
                 iconName={'home'}
                 icon={TabIcon}
                 hideNavBar
@@ -147,13 +133,13 @@ export default class Root extends React.Component {
                 initial />
 
               <Scene key='Profile'
-                title={I18n.t('Snowflake.profile')}
+                title={'Profile'}
                 icon={TabIcon}
                 iconName={'gear'}
                 hideNavBar
                 component={Profile} />
             </Scene>
-          </Scene>*/}
+          </Scene>
         </Router>
       </Provider>
     )
