@@ -5,7 +5,25 @@
   "devDependencies": {
     "react-native-scripts": "1.9.0",
     "jest-expo": "23.0.0",
-    "react-test-renderer": "16.0.0"
+    "react-test-renderer": "16.0.0",
+
+    //From SnowFlake
+    "babel-core": "6.17.0",
+    "babel-eslint": "7.0.0",
+    "babel-jest": "16.0.0",
+    "babel-preset-react-native": "1.9.0",
+    "docker": "1.0.0",
+    "eslint": "3.8.1",
+    "eslint-config-standard": "6.2.0",
+    "eslint-formatter-pretty": "1.1.0",
+    "eslint-plugin-flowtype-errors": "1.4.1",
+    "eslint-plugin-promise": "3.3.0",
+    "eslint-plugin-react": "6.9.0",
+    "eslint-plugin-standard": "2.0.1",
+    "istanbul": "0.4.5",
+    "jest": "16.0.1",
+    "react-addons-test-utils": "15.4.2",
+    "redux-mock-store": "1.2.1"
   },
   "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
   "scripts": {
@@ -25,10 +43,27 @@
     "react-native": "0.50.3",
     "react-navigation": "^1.0.0-beta.27",
 
-    
+    //From NativeBase
     "color": "1.0.3",
     "lodash": "4.13.1",
     "moment": "2.13.0",
-    "react-native-vector-icons": "4.3.0"
+    "react-native-vector-icons": "4.3.0",
+
+    //From SnowFlake
+    "babel-core": "6.17.0",
+    "babel-eslint": "7.0.0",
+    "babel-jest": "16.0.0",
+    "babel-preset-react-native": "1.9.0",
+    "eslint": "3.8.1",
+    "eslint-config-standard": "6.2.0",
+    "eslint-formatter-pretty": "1.1.0",
+    "eslint-plugin-flowtype-errors": "1.4.1",
+    "eslint-plugin-promise": "3.3.0",
+    "eslint-plugin-react": "6.9.0",
+    "eslint-plugin-standard": "2.0.1",
+    "istanbul": "0.4.5",
+    "jest": "16.0.1",
+    "react-addons-test-utils": "15.4.2",
+    "redux-mock-store": "1.2.1"
   }
 }
