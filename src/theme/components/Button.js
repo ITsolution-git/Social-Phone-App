@@ -270,7 +270,6 @@ export default (variables = variable) => {
     },
 
     '.rounded': {
-      // paddingHorizontal: variables.buttonPadding + 20,
       borderRadius: variables.borderRadiusLarge,
     },
 
@@ -408,7 +407,6 @@ export default (variables = variable) => {
       lineHeight: variables.btnLineHeight,
       paddingHorizontal: 16,
       backgroundColor: 'transparent',
-      // childPosition: 1
     },
 
     'NativeBase.Icon': {
@@ -460,7 +458,6 @@ export default (variables = variable) => {
     },
 
     paddingVertical: variables.buttonPadding,
-    // paddingHorizontal: variables.buttonPadding + 10,
     backgroundColor: variables.btnPrimaryBg,
     borderRadius: variables.borderRadiusBase,
     borderColor: variables.btnPrimaryBg,

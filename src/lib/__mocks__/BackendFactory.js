@@ -1,10 +1,4 @@
-/**
- * # BackendFactory.js
- *
- * Mocked BackendFactory
- *
- *
- */
+
 'use strict'
 
 const Backend = require('./Backend').default

@@ -93,6 +93,7 @@ export default class Root extends React.Component {
               component={App}
               type='replace'
               initial />
+              
             <Scene key='InitialLoginForm'
               component={Register}
               type='replace' />

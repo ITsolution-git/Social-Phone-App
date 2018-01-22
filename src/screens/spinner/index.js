@@ -16,7 +16,6 @@ import {
 import styles from "./styles";
 
 class NHSpinner extends Component {
-  // eslint-disable-line
 
   render() {
     return (

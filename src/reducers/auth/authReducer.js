@@ -1,22 +1,11 @@
-/**
- * # authReducer.js
- *
- * The reducer for all the actions from the various log states
- */
+
 'use strict'
-/**
- * ## Imports
- * The InitialState for auth
- * fieldValidation for validating the fields
- * formValidation for setting the form's valid flag
- */
+
 const InitialState = require('./authInitialState').default
 const fieldValidation = require('../../lib/fieldValidation').default
 const formValidation = require('./authFormValidation').default
 
-/**
- * ## Auth actions
- */
+
 const {
   SESSION_TOKEN_REQUEST,
   SESSION_TOKEN_SUCCESS,
@@ -51,19 +40,12 @@ const {
 } = require('../../lib/constants').default
 
 const initialState = new InitialState()
-/**
- * ## authReducer function
- * @param {Object} state - initialState
- * @param {Object} action - type and payload
- */
+
 export default function authReducer (state = initialState, action) {
   if (!(state instanceof InitialState)) return initialState.mergeDeep(state)
 
   switch (action.type) {
-    /**
-     * ### Requests start
-     * set the form to fetching and clear any errors
-     */
+    
     case SESSION_TOKEN_REQUEST:
     case SIGNUP_REQUEST:
     case LOGOUT_REQUEST:
@@ -75,11 +57,7 @@ export default function authReducer (state = initialState, action) {
       return nextState
     }
 
-    /**
-     * ### Logout state
-     * The logged in user logs out
-     * Clear the form's error and all the fields
-     */
+    
     case LOGOUT:
       return formValidation(
       state.setIn(['form', 'state'], action.type)
@@ -90,13 +68,7 @@ export default function authReducer (state = initialState, action) {
         .setIn(['form', 'fields', 'passwordAgain'], '')
     )
 
-    /**
-     * ### Loggin in state
-     * The user isn't logged in, and needs to
-     * login, register or reset password
-     *
-     * Set the form state and clear any errors
-     */
+    
     case LOGIN:
     case REGISTER:
     case FORGOT_PASSWORD:
@@ -105,14 +77,7 @@ export default function authReducer (state = initialState, action) {
         .setIn(['form', 'error'], null)
     )
 
-    /**
-     * ### Auth form field change
-     *
-     * Set the form's field with the value
-     * Clear the forms error
-     * Pass the fieldValidation results to the
-     * the formValidation
-     */
+    
     case ON_AUTH_FORM_FIELD_CHANGE: {
       const {field, value} = action.payload
       let nextState = state.setIn(['form', 'fields', field], value)
@@ -122,10 +87,7 @@ export default function authReducer (state = initialState, action) {
       fieldValidation(nextState, action)
       , action)
     }
-    /**
-     * ### Requests end, good or bad
-     * Set the fetching flag so the forms will be enabled
-     */
+    
     case SESSION_TOKEN_SUCCESS:
     case SESSION_TOKEN_FAILURE:
     case SIGNUP_SUCCESS:
@@ -134,11 +96,7 @@ export default function authReducer (state = initialState, action) {
     case RESET_PASSWORD_SUCCESS:
       return state.setIn(['form', 'isFetching'], false)
 
-    /**
-     *
-     * The fetching is done, but save the error
-     * for display to the user
-     */
+    
     case SIGNUP_FAILURE:
     case LOGOUT_FAILURE:
     case LOGIN_FAILURE:
@@ -146,11 +104,7 @@ export default function authReducer (state = initialState, action) {
       return state.setIn(['form', 'isFetching'], false)
       .setIn(['form', 'error'], action.payload)
 
-    /**
-     * ### Hot Loading support
-     *
-     * Set all the field values from the payload
-     */
+    
     case SET_STATE:
       var form = JSON.parse(action.payload).auth.form
 
@@ -172,14 +126,10 @@ export default function authReducer (state = initialState, action) {
 
     case DELETE_TOKEN_REQUEST:
     case DELETE_TOKEN_SUCCESS:
-        /**
-         * no state change, just an ability to track action requests...
-         */
+        
       return state
 
   }
-  /**
-   * ## Default
-   */
+  
   return state
 }

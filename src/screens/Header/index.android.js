@@ -49,7 +49,6 @@ const datas = [
 ];
 
 class HeaderNB extends Component {
-  // eslint-disable-line
 
   render() {
     return (

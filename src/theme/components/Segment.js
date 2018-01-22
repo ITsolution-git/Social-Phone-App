@@ -16,7 +16,6 @@ export default (variables = variable) => {
       height: 30,
       backgroundColor: "transparent",
       borderWidth: 1,
-      // borderLeftWidth: 1,
       borderColor: variables.segmentBorderColor,
       elevation: 0,
       ".active": {

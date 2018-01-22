@@ -1,46 +1,21 @@
-/**
- * # authActions-test.js
- *
- * This test is for authActions
- *
- */
+
 'use strict'
 
-/**
- * ## Mocks
- *
- * We don't want to use the devices storage, nor actually call
- * the server
- *
- * Need to mock router so the "keys" are available (see src/__mocks__)
- */
+
 jest.mock('../../../lib/AppAuthToken')
 jest.mock('../../../lib/BackendFactory')
 jest.mock('react-native-router-flux')
 
-/**
- * ## Mock Store
- *
- * The ```mockStore``` confirms the all the actions are dispatched and
- * in the correct order
- *
- */
+
 import configureStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
 
-const middlewares = [thunk] // add your middlewares like `redux-thunk`
+const middlewares = [thunk]
 const mockStore = configureStore(middlewares)
-/**
- * ## Class under test
- *
- */
+
 var actions = require('../authActions')
 
-/**
- * ## Imports
- *
- * actions under test
- */
+
 const {
   SESSION_TOKEN_REQUEST,
   SESSION_TOKEN_SUCCESS,
@@ -72,15 +47,9 @@ const {
   RESET_PASSWORD_FAILURE
 } = require('../../../lib/constants').default
 
-/**
- * ## Tests
- *
- * authActions
- */
+
 describe('authActions', () => {
-  /**
-   * ### simple tests that prove the actions have the specific type
-   */
+  
   it('should set logoutState', () => {
     expect(actions.logoutState()).toEqual({type: LOGOUT})
   })
@@ -181,15 +150,7 @@ describe('authActions', () => {
     })
   })
 
-  /**
-   * ### async tests
-   *
-   * the following tests describe the actions that should be
-   * dispatched the function is invoked
-   *
-   * *Note*: these tests are run with ```it``` because they are async
-   *
-   */
+  
   it('should logout', () => {
     const expectedActions = [
       {type: LOGOUT_REQUEST},

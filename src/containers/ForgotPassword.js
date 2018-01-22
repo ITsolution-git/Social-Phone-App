@@ -1,29 +1,16 @@
-/**
- * # ForgotPassword.js
- *
- */
+
 'use strict'
-/**
- * ## Imports
- *
- * Redux
- */
+
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-/**
- * The actions we need
- */
+
 import * as authActions from '../reducers/auth/authActions'
 
-/**
- *   LoginRender
- */
+
 import LoginRender from '../components/LoginRender'
 
-/**
- * Need React
- */
+
 import React from 'react'
 
 const {
@@ -32,9 +19,7 @@ const {
   FORGOT_PASSWORD
 } = require('../lib/constants').default
 
-/**
-  * ## Redux boilerplate
-  */
+
 
 function mapStateToProps (state) {
   return {
@@ -52,9 +37,7 @@ function mapDispatchToProps (dispatch) {
 function buttonPressHandler (resetPassword, email) {
   resetPassword(email)
 }
-/**
- * ### Translations
- */
+
 var createReactClass = require('create-react-class');
 let ForgotPassword = createReactClass({
 

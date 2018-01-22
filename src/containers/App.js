@@ -1,30 +1,13 @@
-/**
- * # app.js
- *  Display startup screen and
- *  getSessionTokenAtStartup which will navigate upon completion
- *
- *
- *
- */
+
 'use strict'
-/*
- * ## Imports
- *
- * Imports from redux
- */
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-/**
- * Project actions
- */
 import * as authActions from '../reducers/auth/authActions'
 import * as deviceActions from '../reducers/device/deviceActions'
 import * as globalActions from '../reducers/global/globalActions'
 
-/**
- * The components we need from ReactNative
- */
+
 import React from 'react'
 import
 {
@@ -34,14 +17,10 @@ import
 }
 from 'react-native'
 
-/**
- * The Header will display a Image and support Hot Loading
- */
+
 import Header from '../components/Header'
 
-/**
- *  Save that state
- */
+
 function mapStateToProps (state) {
   return {
     deviceVersion: state.device.version,
@@ -57,9 +36,7 @@ function mapStateToProps (state) {
   }
 }
 
-/**
- * Bind all the actions from authActions, deviceActions and globalActions
- */
+
 function mapDispatchToProps (dispatch) {
   return {
     actions: bindActionCreators({ ...authActions, ...deviceActions, ...globalActions }, dispatch)
@@ -74,34 +51,24 @@ var styles = StyleSheet.create({
     padding: 10
   },
   summary: {
-    // fontFamily: 'BodoniSvtyTwoITCTT-Book',
     fontSize: 18,
     fontWeight: 'bold'
   }
 })
 
-/**
- * ## App class
- */
 var reactMixin = require('react-mixin')
 import TimerMixin from 'react-timer-mixin'
-/**
- * ### Translations
- */
+
 var createReactClass = require('create-react-class');
 let App = createReactClass({
-    /**
-     * See if there's a sessionToken from a previous login
-     *
-     */
+
   componentDidMount () {
-        // Use a timer so App screen is displayed
     this.setTimeout(
-            () => {
-              this.props.actions.getSessionToken()
-            },
-            2500
-        )
+        () => {
+          this.props.actions.getSessionToken()
+        },
+        2500
+    )
   },
 
   render () {
@@ -119,9 +86,7 @@ let App = createReactClass({
     )
   }
 })
-// Since we're using ES6 classes, have to define the TimerMixin
+
 reactMixin(App.prototype, TimerMixin)
-/**
- * Connect the properties
- */
+
 export default connect(mapStateToProps, mapDispatchToProps)(App)
