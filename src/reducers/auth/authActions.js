@@ -261,25 +261,29 @@ export function loginFailure (error) {
 
 
 export function login (username, password) {
-  return dispatch => {
-    dispatch(loginRequest())
-    return BackendFactory().login({
-      username: username,
-      password: password
-    })
+  // return dispatch => {
+  //   dispatch(loginRequest())
+  //   return BackendFactory().login({
+  //     username: username,
+  //     password: password
+  //   })
 
-      .then(function (json) {
-        return saveSessionToken(json)
+  //     .then(function (json) {
+        return saveSessionToken(Object.assign({}, 
+            { username: 'riy',
+              email: 'roy@gmail.com'
+            })
+          )
           .then(function () {
             dispatch(loginSuccess(json))
             Actions.Tabbar()
             dispatch(logoutState())
           })
-      })
-      .catch((error) => {
-        dispatch(loginFailure(error))
-      })
-  }
+      // })
+      // .catch((error) => {
+      //   dispatch(loginFailure(error))
+      // })
+  // }
 }
 
 
