@@ -18,6 +18,7 @@ import {
 import configureStore from './lib/configureStore'
 
 
+import BadgeFooter from "./screens/footer/badgeFooter";
 import App from './containers/App'
 import Login from './containers/Login'
 import Logout from './containers/Logout'
@@ -74,6 +75,7 @@ class TabIcon extends React.Component {
 }
 
 import {Platform} from 'react-native';
+console.log(Platform.OS);
 export default class Root extends React.Component {
   render () {
     const store = configureStore(getInitialState())
@@ -91,7 +93,6 @@ export default class Root extends React.Component {
               component={App}
               type='replace'
               initial />
-
             <Scene key='InitialLoginForm'
               component={Register}
               type='replace' />

@@ -78,7 +78,7 @@ var styles = StyleSheet.create({
     flex: 1
   },
   summary: {
-    fontFamily: 'BodoniSvtyTwoITCTT-Book',
+    // fontFamily: 'BodoniSvtyTwoITCTT-Book',
     fontSize: 18,
     fontWeight: 'bold'
   },
