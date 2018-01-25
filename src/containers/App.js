@@ -63,17 +63,12 @@ var createReactClass = require('create-react-class');
 let App = createReactClass({
 
   componentDidMount () {
-    this.setTimeout(
-        () => {
-          this.props.actions.getSessionToken()
-        },
-        2500
-    )
+
   },
 
   render () {
     return (
-      <View style={styles.container}>
+      <View>
         <Header isFetching={this.props.auth.form.isFetching}
           showState={this.props.global.showState}
           currentState={this.props.global.currentState}

@@ -17,8 +17,8 @@ import {
 
 import configureStore from './lib/configureStore'
 
-
-import BadgeFooter from "./screens/footer/badgeFooter";
+import Header2 from './screens/Header/2'
+import RankXRoot from './app/layout/RankXRoot'
 import App from './containers/App'
 import Login from './containers/Login'
 import Logout from './containers/Logout'
@@ -75,24 +75,39 @@ class TabIcon extends React.Component {
 }
 
 import {Platform} from 'react-native';
-console.log(Platform.OS);
+
+const store = configureStore(getInitialState())
+
+store.dispatch(setPlatform( Platform.OS ))
+store.dispatch(setVersion(VERSION))
+store.dispatch(setStore(store))
+
 export default class Root extends React.Component {
+  state = {
+    fontLoaded: false,
+  };
+
+  async componentWillMount() {
+    await Expo.Font.loadAsync({
+      'Roboto': require('native-base/Fonts/Roboto.ttf'),
+      'Roboto_medium': require('native-base/Fonts/Roboto_medium.ttf'),
+    });
+
+    this.setState({ fontLoaded: true });
+  }
+
   render () {
-    const store = configureStore(getInitialState())
-
-    store.dispatch(setPlatform( Platform.OS ))
-    store.dispatch(setVersion(VERSION))
-    store.dispatch(setStore(store))
-
     return (
-
+      this.state.fontLoaded ? (
       <Provider store={store}>
         <Router sceneStyle={{ backgroundColor: 'white' }}>
-          <Scene key='root' hideNavBar>
-            <Scene key='App'
-              component={App}
+          <Scene key='root' hideNavBar default="RankXRoot">
+
+            <Scene key='RankXRoot'
+              component={RankXRoot}
               type='replace'
               initial />
+
               
             <Scene key='InitialLoginForm'
               component={Register}
@@ -144,6 +159,9 @@ export default class Root extends React.Component {
           </Scene>
         </Router>
       </Provider>
+      ) : 
+        <Text>Some Text</Text>
+      
     )
   }
 }

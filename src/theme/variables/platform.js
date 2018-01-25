@@ -19,7 +19,7 @@ export default {
   badgeBg: "#ED1727",
   badgeColor: "#fff",
   badgePadding: platform === "ios" ? 3 : 0,
-  btnFontFamily: platform === "ios" ? "System" : "Roboto_medium",
+  btnFontFamily: platform === "ios" ? "System" : "Roboto",
   btnDisabledBg: "#b5b5b5",
   btnDisabledClr: "#f1f1f1",
   buttonPadding: 6,
@@ -195,7 +195,7 @@ export default {
   get defaultTextColor() {
     return this.textColor;
   },
-  titleFontfamily: platform === "ios" ? "System" : "Roboto_medium",
+  titleFontfamily: platform === "ios" ? "System" : "Roboto",
   titleFontSize: platform === "ios" ? 17 : 19,
   subTitleFontSize: platform === "ios" ? 12 : 14,
   subtitleColor: platform === "ios" ? "#8e8e93" : "#FFF",
